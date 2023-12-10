@@ -16,6 +16,10 @@
         <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>
         <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>
         <sonar.language>java</sonar.language>
+        <sonar.login>admin</sonar.login>
+        <sonar.host.url>http://ec2-51-20-115-249.eu-north-1.compute.amazonaws.com:9000</sonar.host.url>
+        <sonar.password>qwerty$4</sonar.password>
+        <sonar.projectKey>epam_cicd</sonar.projectKey>
     </properties>
     <build>
         <plugins>
