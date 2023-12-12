@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                // Get some code from a GitHub repository
+                git url: 'https://github.com/Sergei12123/epam_cicd.git/', branch: 'main'
+
+                // Run Maven on a Unix agent.
+                sh "mvn -f Java/pom.xml clean test sonar:sonar package"
+
+            }
+        }
+        stage('Deploy') {
+            steps {
+                sh "cp Java/target/hello-ci-1.0-SNAPSHOT.war /root/apache-tomcat-9.0.83/webapps"
+                sh "sudo systemctl restart tomcat"
+            }
+        }
+    }
+}
